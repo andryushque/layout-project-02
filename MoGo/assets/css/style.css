@@ -1,0 +1,1853 @@
+/* 00. Body, page, container etc.  */
+
+/* 01. Intro */
+    /* 02. Header */
+    /* 03. Nav */
+      /* 03-1. Nav-toggle */
+    /* 04. Button */
+    /* 05. Slider */
+
+/* 06. Section */
+/* 07. Card (+Team) */
+
+/* 08. Statistics */
+/* 09. Services */
+/* 10. Devices */
+/* 11. Wedo */
+    /* 12. Accordion */
+/* 13. Reviews */
+/* 14. Social (Team) */
+/* 15. Logos */
+/* 16. Works */
+/* 17. Clients */
+/* 18. Blog */
+/* 19. Map */
+
+/* 20. Footer */
+    /* 21. Blogs */
+    /* 22. Instagram */
+    /* 23. Copyright */
+    /* 24. Subscribe */
+/* 25. Media */
+
+
+
+body {
+    margin: 0; /* убираем отступы по умолчанию */
+    font-family: 'Montserrat', sans-serif; /* семейство шрифтов */
+    font-size: 15px; /* размер шрифта */
+    line-height: 1.6; /* межстрочный интервал */
+    color: #333; /* цвет текста */
+
+}
+
+*, *:before, *:after {
+    box-sizing: border-box; /* не учитываем ширину отступов */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0; /* убираем отступы у всех заголовков */
+}
+
+p {
+    margin: 0; /* убираем отступы у всех абзацев */
+}
+
+hr { /* разделитель */
+    display: block; /* блочный элемент */
+    width: 100%; /* ширина */
+    height: 2px; /* высота */
+    border: 0; /* границы */
+    margin: 40px 0; /* отступы сверху и снизу */
+    background-color: #e5e5e5; /* фоновый цвет */
+}
+
+/* Page
+========== */
+.page { /* контейнер для всего сайта (кроме header) */
+    overflow: hidden; /* скрываем все вне контейнера */
+}
+
+/* Container
+========== */
+.container { /* контейнер для выравнивания сайта */
+    width: 100%; /* по ширине родителя - body  */
+    max-width: 1230px; /* максимальная ширина контейнера */
+    padding: 0 15px; /* внутренние отступы */
+    margin: 0 auto; /* =по ширине */
+}
+
+
+
+/* 01. Intro
+========== */
+.intro { /* самый первый блок */
+    display: flex; /* дочерние элементы - flex */
+    flex-direction: column; /* дочерние элементы - в колонну */
+    justify-content: center; /* =блоков по высоте */
+    
+    position: relative; /* абс.поз. для .slider */
+    
+    width: 100%; /* по ширине родителя - body */
+    min-height: 820px; /* минимальная высота блока*/
+    height: 100vh;  /* 100% высоты экрана */
+    
+    background: url("../images/intro.jpg") center no-repeat; /* фон (по центру, без повтора) */
+    background-size: cover; /* фон занимает всю площадь экрана */
+}
+
+.intro__inner { /* контейнер для заголовка */
+    width: 100%; /* по ширине родителя - .intro */
+    max-width: 880px; /* максимальная ширина контейнера */
+    margin: 0 auto; /* =по ширине */
+    
+    text-align: center; /* =текста по центру */
+}
+
+.intro__suptitle { /* надзоголовок */
+    font-family: 'Kaushan Script', cursive; /* семейство шрифтов */
+    font-size: 72px; /* размер текста */
+    color: #fff; /* цвет текста */
+    margin-bottom: 20px; /* отступ снизу надзаголовка*/
+}
+
+.intro__title { /* заголовок в intro */
+    color: #fff; /* цвет текста */
+    font-size: 150px; /* размер текста */
+    font-weight: 700; /* толщина начертания */    
+    line-height: 1; /* межстрочный интервал */
+    text-transform: uppercase; /* верхний регистр */
+}
+
+.intro__title:after { /* полоса после заголовка */
+    content: ""; /* не добавляем контент */
+    display: block; /* блочный элемент */
+    width: 60px; /* ширина полоски */
+    height: 3px; /* высота полоски */
+    margin: 60px auto; /* отступы полоски */
+    background-color: #fff; /* цвет полоски */
+}
+  
+
+/* 02. Header
+========== */
+.header { /* шапка сайта */
+    width: 100%; /* по ширине родителя - body*/
+    padding-top: 30px; /* отступ сверху для всей шапки */
+    
+    position: absolute; /* абс.поз. от края окна браузера */
+    top: 0; /* положение от верха */
+    right: 0; /* положение справа */
+    left: 0; /* положение слева */
+    z-index: 1000; /* поверх всех элементво по оси Z */
+}
+
+.header.fixed { /* фиксированная шапка */
+    background-color: #eb8b8d;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .3); /* тень шапки */
+    
+    padding: 10px 0; 
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    transform: translate3d(0, 0, 0); /* чтобы не дергалась при скролле */
+}
+
+.header.active { 
+    background-color: #eb8b8d;
+}
+
+
+.header__logo { /* логотип сайта */
+    font-size: 30px; /* размер текста */
+    font-weight: 700; /* толщина начертания */
+    color: #fff; /* цвет текста */
+    cursor: pointer; /* курсор при наведении */
+}
+
+.header__inner {
+    display: flex; /* все дочерние элементы - flex */
+    justify-content: space-between; /* положение по главной оси - =по ширине */
+    align-items: center; /* положение по перекрестной оси - =по высоте */
+}
+
+
+/* 03. Nav
+========== */
+.nav { /* навигация сайта */
+    font-size: 14px; /* размер текста */
+    text-transform: uppercase; /* верхний регистр */
+}
+
+.nav__link { /* ссылки навигации */
+    display: inline-block; /* строчный блок */
+    vertical-align: top; /* выравнивание элемента по верхней границе */
+    margin: 0 15px; /* отступы между ссылками навигации */
+    
+    color: #fff; /* цвет текста */
+    text-decoration: none; /* без подчеркивания */
+    transition: color .2s linear; /* плавность для цвета текста */
+    
+    position: relative; /* абс.поз. для nav__link */
+}
+
+.nav__link:after { /* подчеркивание ссылок */
+    content: ""; /* не добавляем контент */
+    display: block; /* блочный элемент */
+    width: 100%; /* по ширине .nav__link */
+    height: 3px; /* высота линии */
+    
+    background-color: #fce38a; /* цвет линии */
+    opacity: 0; /* элемент прозрачный */
+    transition: opacity .2s linear; /* плавность для прозрачности */
+    
+    position: absolute; /* абс.поз. отн. .nav__link */
+    top: 100%; /* положение от верхнего края */
+    left: 0; /* положение от левого края */
+    z-index: 1; /* положение по оси Z */
+}
+
+.nav__link:hover:after, .nav__link.active:after { /* подчеркивание при наведении + + активная ссылка */
+    opacity: 1; /* элемент непрозрачный */
+}
+
+.nav__link:hover, .nav__link.active { /* ссылки навигации при наведении + активная ссылка */
+    color: #fce38a; /* цвет текста */
+}
+
+
+/* 03-1. Nav-toggle
+========== */
+.nav-toggle { /* бургер-меню */
+    width: 30px;
+    padding: 10px 0;
+    
+    display: none; /* скрываем бургер-меню */
+    
+    font-size: 0;
+    color: transparent; /* скрываем надпись */
+    
+    border: 0;
+    outline: 0; 
+    background: none; /* убираем стандартные стили у кнопки */
+    cursor: pointer;
+    
+    position: absolute; /* отню header__inner */
+    top: 24px;
+    right: 24px;
+    z-index: 1;
+    
+}
+
+.nav-toggle__item { /* полоска бургер-меню */
+    display: block; /* делаем элемент блочным */
+    
+    width: 100%; /* по ширине меню */
+    height: 3px;
+    
+    background-color: #fff;
+    
+    position: absolute; /* отн. nav-toggle */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    
+    transition: background .1s linear;
+}
+
+.nav-toggle__item:before, 
+.nav-toggle__item:after {
+    content: "";
+    width: 100%; /* по ширине меню */
+    height: 3px;
+    
+    background-color: #fff;
+    
+    position: absolute; /* отн. nav-toggle */
+    left: 0;
+    z-index: 1;
+    
+    transition: transform .1s linear;
+}
+.nav-toggle__item:before {
+    top: -8px;
+}
+.nav-toggle__item:after {
+    bottom: -8px;
+}
+
+.nav-toggle.active .nav-toggle__item { /* полоска бургер-меню при нажатии*/
+    background: none;
+}
+
+.nav-toggle.active .nav-toggle__item:before {
+    top: 0;
+    transform: rotate(45deg);
+}
+.nav-toggle.active .nav-toggle__item:after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/*.nav-toggle.active .nav-toggle__item:before {
+    transform-origin: left top;
+    transform: rotate(45deg);
+}
+.nav-toggle.active .nav-toggle__item:after {
+    transform-origin: left bottom;
+    transform: rotate(-45deg) translate(-3px, 3px);
+}*/
+
+
+/* 04. Button
+========== */
+.btn { /* кнопка */
+    display: inline-block; /* строчный блок */
+    vertical-align: top; /* выравнивание элемента по верхней границе */
+    padding: 8px 30px; /* отступы до границы кнопки */
+    border: 3px solid #fff; /* граница кнопки */
+    color: #fff; /* цвет текста в кнопке */
+    font-size: 14px; /* размер текста */
+    font-weight: 700; /* толщина начертания */
+    text-transform: uppercase; /* верхний регистр */
+    text-decoration: none; /* убираем подчеркивание */
+    
+    transition: background-color .1s linear, color .1s linear; /* плавность для фона и цвета текста кнопки */
+}
+
+.btn:hover { /* кнопка при наведении */
+    color: #333; /* цвет текста в кнопке */
+    background-color: #fff; /* цвет фона кнопки */
+}
+
+
+/* 05. Slider
+========== */
+.slider { /* слайдер внизу блока .intro*/
+    width: 100%; /* по ширине .intro */
+    /*padding-top: 100px;*/ /* отступ над слайдерами */
+    position: absolute; /* абс.поз. отн. .intro */
+    bottom: 0; /* положение от нижнего края */
+    left: 0; /* положение от левого края */
+    z-index: 1; /* положение по оси Z */
+}
+
+.slider__inner { /* контейнер для слайдера */
+    display: flex; /* дочерние элементы - flex */
+    justify-content: space-between; /* =блоков по ширине */
+}
+
+.slider__item { /* элемент слайдера */
+    padding: 20px 0; /* отступы */
+    width: 23%; /* ширина слайдера - 4 в строку*/
+    
+    position: relative; /* абс.поз. для .slider__item.active:before */
+    
+    border-top: 3px solid #fff; /* верхняя граница слайдера */
+    text-transform: uppercase; /* верхний регистр */
+    font-size: 18px; /* размер шрифта текста*/
+    color: #fff; /* цвет текста */
+    opacity: .7; /* прозрачность слайдера */
+
+}
+
+.slider__item.active { /* активный слайдер */
+    opacity: 1; /* прозрачность слайдера */
+}
+
+.slider__item.active:before { /* полоса активного слайдера */
+    content: ""; /* не добавляем контент */
+    display: block; /* блочный элемент */
+    width: 70px; /* ширина полоса */
+    height: 3px; /* высота полосы */
+    
+    background-color: #f38181; /* цвет полосы */
+    
+    position: absolute; /* абс.поз. отн. .slider__item */
+    top: -3px; /* положение от верхнего края */
+    left: 0; /* положение от левого края */
+    z-index: 1; /* положение по оси Z */
+}
+
+.slider__num { /* число в тексте */
+    font-size: 24px; /* размер шрифта */
+    font-weight: 700; /* толщина начертания */
+}
+
+
+/* 06. Section
+========== */
+.section { /* секция с информацией */
+    padding: 80px 0 100px; /* осттупы сверху и снизу */
+}
+
+
+.section--devices { /* модификатор */
+    background: url("../images/devices/devices-bg.jpg") center no-repeat; /* фон для секции devices (по центру, без повтора) */
+    background-size: cover; /* фон занимает всю площадь экрана */
+    padding-bottom: 0; /* внутренний отступ снизу */
+    margin-bottom: 40px; /* оступ снизу */
+}
+
+.section--grey { /* модификатор */
+    background-color: #f8f8f8; /* фон */
+}
+
+.section--clients { /* модификатор */
+    background: url("../images/clients-bg.jpg") center no-repeat; /* фон */
+    background-size: cover; /* фон занимает всю площадь экрана */
+}
+
+.section--map { /* модификатор */
+    background: #e6e6e6 url("../images/map-bg.jpg") center no-repeat; /* фон */
+    background-size: cover; /* фон занимает всю площадь экрана */
+    padding: 40px 0; /* внутренние отступы */
+}
+
+
+.section__header { /* блок с заголовками */
+    width: 100%; /* по ширине .section */
+    max-width: 950px; /* максимальная ширина блока */
+    margin: 0 auto; /* =по ширине */
+    text-align: center; /* =текста по центру */
+}
+
+.section__suptitle { /* надзаголовок */
+    font-family: 'Kaushan Script', cursive; /* семейство шрифтов */
+    font-size: 24px; /* размер текста */
+    color: #333; /* цвет текста */
+}
+
+.section__title { /* заголовок */
+    font-size: 30px; /* размер текста */
+    font-weight: 700; /* толщина начертания */
+    color: #333; /* цвет текста */
+    text-transform: uppercase; /* верхний регистр */
+    
+}
+
+.section__title:after { /* полоса после заголовка */
+    content: ""; /* не добавляем контент */
+    display: block; /* блочный элемент */
+    width: 60px; /* ширина полосы */
+    height: 3px; /* высота полосы */
+    
+    background-color: #f38181; /* цвет полосы */
+    
+    margin: 30px auto; /* =по центру и отступы */
+}
+
+.section__text { /* текст под заголовком */
+    font-family: 'Roboto', sans-serif; /* семейство шрифтов */
+    font-size: 15px; /* размер шрифта */
+    color: #999; /* цвет текста */
+    margin-bottom: 10px; /* отступ снизу */
+}
+
+
+/* 07. Card
+========== */
+.card { /* раздел c карточками */
+    display: flex; /* дочерние элементы - flex */
+    flex-wrap: wrap; /* перенос на другую строку */
+    justify-content: space-between; /* =блоков по ширине */
+    margin: 80px -15px 0; /* отступы */
+}
+
+.card__item { /* контейнер блока card */
+    width: 33.333333%; /* ширина элементов */
+    padding: 0 15px; /* оступы между карточками */
+}
+
+.card__inner { /* элементы блока card */
+    background-color: #95e1d3; /* цвет фона */
+    position: relative; /* абс.поз. для .card__text */
+}
+
+.card__inner:hover .card__img { /* контейнер под фото при наведении на .card__inner */
+    transform: translate3d(-10px, -10px, 0); /* смещение фото вверх и влево */
+}
+
+.card__inner:hover .card__img img { /* фото при наведении на .card__inner */
+    opacity: .1; /* прозрачность блока */
+}
+
+.card__inner:hover .card__text { /* текст при наведении на .card__inner */
+    opacity: 1; /* элемент непрозрачный */
+}
+
+.card__img { /* контейнер под фото */
+    background: linear-gradient(to bottom, #f38181, #fce38a); /* градиент контейнера под фото */
+    transition: transform .2s linear; /* плавность перемещения контейнера под фото */
+}
+
+.card__img img { /* сама фотография */
+    display: block; /* блочный элемент */
+    /* Картинки это наполовину inline-block, и от них они унаследовали высоту строки, можно либо line-height:0 сделать в этом блоке, либо сделать картинку полностью блочным элементом. */
+    transition: opacity .1s linear; /* плавность прозрачности */
+    
+    max-width: 100%; /* ширина картинки */
+    height: auto; /* высота картинки */
+}
+
+/* т.е. при наведении на блок .card__item фото становится немного прозрачным, и мы видим градиент контейнера под фото */
+
+.card__text { /* текст в контейнере при наведении */
+    width: 100%; /* по ширине .card__item */
+    font-size: 18px; /* размер шрифта */
+    font-weight: 700; /* толщина начертания */
+    color: #fff; /* цвет текста */
+    text-transform: uppercase; /* верхний регистр */
+    text-align: center; /* =по ширине */
+    
+    position: absolute; /* абс.поз. отн. .card__inner */
+    top: 50%; /* положение от верхнего края */
+    left: 0; /* положение от левого края */
+    z-index: 2; /* положение по оси Z */
+    transform: translate3d(0, -50%, 0); /* =по высоте */
+    
+    opacity: 0; /* элемент прозрачный */
+    transition: opacity .2s linear; /* плавность для прозрачности */
+}
+
+.card__info { /* инфо под фото */
+    margin-top: 15px; /* отступ сверху */
+    text-align: center; /* =по центру */
+}
+
+.card__name { /* имя */
+    text-transform: uppercase; /* верхний регистр */
+    color: #000; /* цвет текста */
+    font-size: 14px; /* размер текста */
+    margin-bottom: 5px; /* отступ снизу */
+}
+
+.card__prof { /* должность */
+    font-family: 'Roboto', sans-serif; /* семейство шрифтов */
+    font-size: 15px; /* размер шрифта */
+    font-style: italic; /* курсив */
+    font-weight: 300; /* толщина начертания */
+    color: #999; /* цвет текста */
+}
+
+
+/* 08. Statistics
+========== */
+.statistics { /* блок со статистикой */
+    background-color: #95e1d3; /* цвет фона */ 
+}
+
+.stat { /* контейнер для .stat__item */
+    display: flex; /* дочерние элементы - flex */
+    flex-wrap: wrap; /* перенос на другую строку */
+}
+
+.stat__item { /* сами блоки */
+    flex: 1 1 0; /* элементы равные по ширине */
+    border-left: 1px solid #b5eae0; /* граница слева от всех элементов */
+    text-align: center; /* =по ширине */
+    color: #fff; /* цвет текста */
+    padding: 70px 25px; /* отступы */
+}
+
+.stat__item:last-child { /* последний элемент */
+    border-right: 1px solid #b5eae0; /* граница справа от последнего элементов */
+}
+
+.stat__num { /* число в статистике */
+    margin-bottom: 10px; /* отступ снизу */
+    font-size: 72px; /* размер шрифта */
+    font-weight: 700; /* толщина начертания */
+    line-height: 1; /* межстрочный интервал */
+}
+
+.stat__text { /* текст в статистике */
+    font-size: 14px; /* размер шрифта */
+    text-transform: uppercase; /* верхний регистр */
+}
+
+
+/* 09. Services
+========== */
+.services { /* раздел sevices */
+    display: flex; /* дочерние элементы - flex */
+    justify-content: space-between; /* =блоков по ширине */
+    flex-wrap: wrap; /* перенос на другую строку */
+}
+
+.services__item { /* сами блоки */
+    width: 33.333333%; /* по три в строку */
+    padding: 0 35px 40px 85px; /* отступы */
+    
+    margin-bottom: 40px; /* отступ снизу */
+    position: relative; /* абс.поз. для .services__icon */
+}
+
+.services__item--border { /* модификатор для границ первых трех блоков */
+    border-bottom: 1px solid #e5e5e5; /* нижняя граница */
+}
+
+.services__icon { /* иконка */
+    position: absolute; /* абс.поз. отн. .services__item */
+    top: 0; /* положение от верхнего края */
+    left: 25px; /* положение от левого края */
+    z-index: 1; /* положение по оси Z */
+}
+
+.services__title { /* заголовок */
+    margin-bottom: 10px; /* отступ снизу */
+    font-size: 14px; /* размер шрифта */
+    color: #333; /* цвет текста */
+    text-transform: uppercase; /* верхний регистр */
+}
+
+.services__text { /* текст */
+    font-family: 'Roboto', sans-serif; /* семейство шрифтов */
+    font-size: 15px; /* размер шрифта */
+    color: #999; /* цвет текста */
+}
+
+
+/* 10. Devices
+========== */
+.devices { /* секция devices */
+    width: 100%; /* ширина */
+    max-width: 600px; /* максимальная ширина блока */
+    margin: 0 auto; /* =по центру */
+    
+    position: relative; /* абс.поз. для .devices__item */
+}
+
+.devices__item {
+    display: block; /* блочный элемент */
+    max-width: 100%; /* максимальная ширина */
+    height: auto; /* высота */
+}
+
+.devices__item--iphone {
+    position: absolute; /* абс.поз. отн. .devices */
+    bottom: -85px; /* положение от нижнего края */
+    right: 0; /* положение от правого края */
+    z-index: 1; /* положение по оси Z */
+}
+
+
+/* 11. Wedo
+========== */
+.wedo { /* раздел we-do */
+    display: flex; /* дочерние элементы - flex */
+    justify-content: space-between; /* =блоков по ширине */
+    
+    margin: 0 -15px; /* отступы */
+}
+
+.wedo__item { /* сами блоки */
+    /*max-width: 570px; *//* 2 элемента в строку */
+    width: 50%;  
+    padding: 0 15px; /* отступы */
+    margin-top: 20px; /* отступы */
+}
+
+.wedo__img { /* изображение слева */
+    display: block; /* блочный элемент */
+    max-width: 100%; /* максимальная ширина */
+    height: auto; /* высота */
+}
+
+
+/* 12. Accordion
+========== */
+.accordion__item { /* элемент аккордеона */
+    border: 1px solid #e5e5e5; /* граница */
+    margin-bottom: 10px; /* отступ снизу */
+}
+
+.accordion__item.active .accordion__content { /* активное состояние */
+    display: block; /* контент показывается */ 
+}
+
+.accordion__item.active .accordion__header:after { /* активное состояние */
+    transform: translateY(-50%) rotate(-45deg); /* =по высоте и стрелочка вверх */
+    margin-top: 5px;  /*отступ сверху */
+}
+
+.accordion__item.active .accordion__header { /* активное состояние */
+    border-bottom-color:  #e5e5e5; /* цвет нижней границы */
+}
+
+.accordion__header { /* шапка аккордеона */
+    padding: 15px 20px 15px 65px; /* отступы для шапки */
+    border-bottom: 1px solid transparent; /* нижняя граница */
+    position: relative; /* абс.поз. для .accordion__icon */
+    cursor: pointer; /* курсор при наведении */
+}
+
+.accordion__header:after { /* стрелочка */
+    content: ""; /* не добавляем контент */
+    display: block; /* блочный элемент */
+    width: 16px; /* ширина стрелочки */
+    height: 16px; /* высота стрелочки */
+    
+    border-top: 2px solid #ccc; /* верхняя граница */
+    border-right: 2px solid #ccc; /* правая граница */
+    
+    position: absolute; /* абс.поз. отн. .accordion__header */
+    top: 50%; /* положение от верхнего края */
+    right: 20px; /* положение от правого края */
+    z-index: 1; /* положение по оси Z */
+    transform: translateY(-50%) rotate(135deg); /* =по высоте и стрелочка вниз */
+}
+
+.accordion__icon { /* иконка */
+    position: absolute; /* абс.поз. отн. .accordion__header */
+    top: 50%; /* положение от верхнего края */
+    left: 20px; /* положение от левого края */
+    z-index: 1; /* положение по оси Z */
+    transform: translateY(-50%); /* =по высоте */
+}
+
+.accordion__content { /* контент аккордеона  */
+    display: none; /* контент скрыт */
+    
+    padding: 15px 20px; /* внутренний отступ */
+    font-family: 'Roboto', sans-serif; /* семейство шрифтов */
+    font-size: 18px; /* размер шрифта */
+    line-height: 1.5; /* межстрочный интервал */
+    font-style: italic; /* курсив */
+    font-weight: 300; /* толщина начертания */
+    color: #999; /* цвет текста */
+}
+
+.accordion__title { /* заголовок аккордеона */
+    font-size: 14px; /* размер шрифта */
+    color: #333; /* цвет текста */
+    text-transform: uppercase; /* верхний регистр */
+}
+
+
+/* 13. Reviews
+========== */
+.reviews { /* раздел отзывов */
+    position: relative; /* для .slick-arrow */
+}
+
+.reviews .slick-slider {
+    padding: 0 110px; /* отступы */
+}
+
+.reviews__item { /* элемент reviews */
+    min-height: 210px; /* минимальная высота элемента */
+    padding-left: 255px; /* отступы */
+    position: relative; /* абс.поз. для .reviews__photo */
+}
+
+.reviews__photo { /* фото */
+    display: block; /* блочный элемент */
+    
+    width: 210px; /* ширина фото */
+    height: 210px; /* высота фото */
+    
+    position: absolute; /* абс.поз. отн. .reviews__item */
+    top: 0; /* положение от верхнего края */
+    left: 0; /* положение от левого края */
+    z-index: 1; /* положение по оси Z */
+    
+    border: 2px solid #95e1d3; /* граница фото */
+    border-radius: 50%; /* скругление границы фото */
+}
+
+.reviews__text { /* текст отзыва */
+    font-size: 24px; /* размер шрифта */
+    font-style: italic; /* курсив */
+    font-weight: 300; /* толщина начертания */
+    color: #999; /* цвет текста */
+    
+    margin-bottom: 15px; /* отступ снизу */
+}
+
+.reviews__author { /* автор отзыва */
+    font-family: 'Kaushan Script', cursive; /* семейство шрифтов */
+    font-size: 24px; /* размер текста */
+    color: #333; /* цвет текста */
+}
+
+.reviews__author:before { /* полоска перед именем автора */
+    content: ""; /* не добавляем контент */
+    display: inline-block; /* строчный блок */
+    vertical-align: middle; /* =по высоте */
+    width: 60px; /* ширина полоски */
+    height: 3px; /* высота полоски */
+    margin-right: 10px; /* отступ справа */
+    background-color: #f38181; /* цвет полоски */ 
+}
+
+.slick-arrow { /* кнопки-стрелки */
+    font-size: 0; /* размер шрифта */
+    color: transparent; /* прозрачный текст */
+    
+    display: block; /* блочный элемент */
+    
+    border: 0;
+    background: none;
+    
+    cursor: pointer; 
+    
+    position: absolute; /* абс.поз. отн. .reviews */
+    top: 50%; /* положение сверху */
+    transform: translateY(-50%); /* =по высоте */
+}
+
+.slick-arrow:focus {
+    outline: 0;
+}
+
+.slick-arrow:after { /* стрелочка */
+    content: ""; /* не добавляем контент */
+    display: block; /* блочный элемент */
+    width: 16px; /* ширина стрелочки */
+    height: 16px; /* высота стрелочки */
+    
+    border-top: 2px solid #ccc; /* верхняя граница */
+    border-left: 2px solid #ccc; /* левая граница */
+}
+
+.slick-prev { /* стрелочка влево */
+    left: 0; /* положение от левого края */
+    transform: rotate(-45deg); /* поворот влево */
+}
+
+.slick-next { /* стрелочка вправо */
+    right: 0; /* положение от левого края */
+    transform: rotate(135deg); /* поворот вправо */
+}
+
+
+/* 14. Social
+========== */
+.social { /* блок с ссылками на соцсети */
+    display: flex; /* дочерние элементы - flex */
+    justify-content: center; /* =по центру */
+}
+
+.social__item { /* элемент c ссылкой */
+    /* иконки - через fontawesome.com*/
+    
+    width: 55px; /* ширина */
+    height: 55px; /* высота */
+    padding: 12px 10px; /* внутренние отступы */
+    line-height: 1; /* межстрочный интервал */  
+    
+    background-color: #fce38a; /* фоновый цвет */
+    border-right: 1px solid #f38181; /* правая граница иконки */
+    font-size: 30px; /* размер иконки */
+    text-decoration: none; /* убираем подчеркивание */
+    color: #f38181; /* цвет иконки */
+    
+    transition: background .1s linear, color .1s linear; /* плавность для фона и цвета иконки*/
+}
+
+.social__item:last-child { /* последний элемент c ссылкой */
+    border-right: none; /* правая граница иконки */
+}
+
+.social__item:hover { /* при наведении */
+    background-color: #f38181; /* фоновый цвет */
+    color: #fce38a; /* цвет иконки */
+}
+
+
+/* 15. Logos
+========== */
+.logos { /* блок с логотипами */
+    display: flex; /* дочерние элементы - flex */
+    justify-content: space-between; /* =по ширине */
+    align-items: center; /* =по высоте */
+    margin: 0 -15px; /* отступы слева и справа */
+}
+
+.logos__item { /* контейнер для логотипа */
+    padding: 0 15px; /* отступы между элементами */   
+}
+
+.logos__img { /* сам логотип */
+    display: block; /* блочный элемент */
+    max-width: 100%; /* максимальная ширина */
+    height: auto; /* высота */
+}
+
+
+/* 16. Works
+========== */
+.works { /* раздел с работами */
+    display: flex; /* дочерние элементы - flex */
+}
+
+.works__column { /* колонка с фотографиями */
+    flex: 1 1 0; /* 4 одинаковые колонки в строку */
+}
+
+.works__item { /* блок с фотографией */
+    position: relative; /* для .works__info */
+    background: linear-gradient(to bottom, #f38181, #fce38a); /* градиент блока под фотографией*/ 
+}
+
+.works__item:hover .works__image { /* фотография при наведении на блок с ней */
+    opacity: .1; /* уменьшаем прозрачность фотографии => становится виден градиент контейнера под фотографией */
+}
+
+.works__item:hover .works__info { /* блок info при наведении на блок с фотографией */
+    opacity: 1; /* делаем непрозрачным текст при наведении */
+}
+
+.works__image { /* сама картинка */
+    max-width: 100%; /* ширина картинок */
+    height: auto; /* высота */
+    
+    transition: opacity .2s linear; /* плавность для прозрачности картинки */
+    
+    display: block; /* блочный элемент - убираем отступ снизу*/
+    /* Картинки это наполовину inline-block, и от них они унаследовали высоту строки, можно либо line-height:0 сделать в этом блоке, либо сделать картинку полностью блочным элементом. */
+}
+
+.works__info { /* информация под фото при наведении */
+    width: 100%; /* по ширине .works__item */
+    
+    padding: 0 15px; /* отступы сдева и справа */
+    text-align: center; /* =текста по центру */
+    color: #fff; /* цвет текста */
+    
+    position: absolute; /* абс.поз. отн. .works__item */
+    top: 50%; /* положение от верхнего края */
+    left: 0; /* положение от левого края */
+    z-index: 2; /* положение по оси Z */
+    transform: translateY(-50%); /* =по высоте */
+    
+    opacity: 0; /* прозрачный блок */
+    transition: opacity .2s linear; /* плавность для прозрачности info */
+}
+
+.works__title { /* заголовок info */
+    font-size: 14px; /* размер шрифта */
+    margin-bottom: 5px; /* отступ снизу */
+    text-transform: uppercase; /* верхний регистр */
+}
+
+.works__text { /* текст info */
+    font-size: 15px; /* размер шрифта */
+    font-style: italic; /* курсив */
+    font-weight: 300; /* толщина начертания */
+}
+
+
+/* 17. Clients
+========== */
+.clients { /* блок с клиентами */
+    display: flex; /* дочерние элементы - flex */
+    flex-wrap: wrap; /* перенос элементов на другую строку */
+    margin-top: 60px; /* отступ сверху */
+}
+
+.clients__item { /* элемент с одним клиентом */
+    width: 50%; /* 2 элемента в строку */
+    padding: 0 45px 0 175px; /* отступы */
+    margin-bottom: 60px; /* отступ снизу */
+    
+    position: relative; /* для .clients__photo */
+}
+
+.clients__photo { /* фото клиента */
+    display: block; /* блочный элемент */
+    
+    position: absolute; /* абс.поз. отн. .clients__item */
+    top: 0; /* положение от верхнего края */
+    left: 40px; /* положение от левого края */
+    z-index: 2; /* положение по оси Z */
+    
+    width: 110px; /* ширина фото */
+    height: 110px; /* высота фото */
+    border-radius: 50%; /* скругление фото */
+}
+
+.clients__name { /* имя клиента */
+    font-size: 14px; /* размер шрифта */
+    color: #333; /* цвет текста */
+    text-transform: uppercase; /* верхний регистр */
+    margin-bottom: 5px; /* отступ снизу */
+}
+
+.clients__prof { /* профессия клиента */
+    font-family: 'Roboto', sans-serif; /* семейство шрифтов */
+    font-size: 15px; /* размер шрифта */
+    color: #333; /* цвет текста */
+    font-style: italic; /* курсив */
+    font-weight: 300; /* толщина начертания */
+}
+
+.clients__text { /* текст клиента */
+    font-family: 'Roboto', sans-serif; /* семейство шрифтов */
+    font-size: 15px; /* размер шрифта */
+    color: #999; /* цвет текста */
+}
+
+.clients__text:before { /* полоска между тектос и профессией */
+    content: ""; /* не добавляем контент */
+    display: block; /* блочный */
+    width: 60px; /* ширина полоски */
+    height: 3px; /* высота полоски */
+    
+    margin: 15px 0; /* отступ сверху и снизу */
+    
+    background-color: #f38181; /* цвет полоски */ 
+    
+}
+
+
+/* 18. Blog
+========== */
+.blog { /* блок с блогами */
+    display: flex; /* дочерние элементы - flex */
+    flex-wrap: wrap; /* перенос элементов на другую строку */
+    justify-content: space-between; /* =по ширине */
+    margin-top: 60px; /* отступ сверху */
+}
+
+.blog__item { /* элемент с одним постом в блоге */
+    width: 31%; /* 3 элемента в строку */
+    padding: 0; /* отступы */
+    margin-bottom: 45px; /* отступ снизу */
+}
+
+.blog__header { /* шапка = фото+дата */
+    position: relative;  /* для .blog__date */
+    margin-bottom: 14px; /* отступ снизу */
+}
+
+.blog__photo { /* фото в шапке */
+    display: block; /* блочный элемент */
+    width: 100%; /* ширина по blog__header */
+    height: auto; /* высота фото */
+}
+
+.blog__date { /* дата в шапке */
+    position: absolute; /* абс.поз. отн. .blog__header */
+    bottom: 10px; /* положение от нижнего края */
+    left: -10px; /* положение от левого края */
+    z-index: 1; /* положение по оси Z */
+    
+    padding: 10px 20px; /*отступы внутрь  */
+    
+    background-color: #95e1d3; /* фон для даты */
+    color: #fff; /* цвет текста */
+    font-size: 15px; /* размер шрифта */
+    font-weight: 300; /* толщина начертания */
+    font-style: italic; /* курсив */
+    text-align: center; /* =по центру */
+    font-family: 'Roboto', sans-serif; /* семейство шрифтов */
+}
+
+.blog__date-day { /* день недели */
+    font-family: 'Montserrat', sans-serif; /* семейство шрифтов */
+    font-size: 30px; /* размер шрифта */
+    font-weight: 700; /* толщина начертания */
+    font-style: normal; /* обычный текст */
+    line-height: 1; /* межстрочный интервал */
+}
+
+.blog__content { /* контент = название + текст */
+    margin-bottom: 14px; /* отступ снизу */
+}
+
+.blog__title { /* название поста в блоге */
+    text-transform: uppercase; /* верхний регистр */
+    font-size: 14px; /* размер шрифта */
+    color: #333; /* цвет текста */
+    margin-bottom: 10px; /* отступ снизу */
+}
+
+.blog__title a { /* ссылка в названии */
+    text-decoration: none; /* без подчеркивания */
+    color: inherit; /* цвет текста */
+}
+
+.blog__title a:hover { /* ссылка при наведении */
+    text-decoration: underline; /* с подчеркиваниеим */
+}
+
+.blog__text { /* текст в посте блога */
+    color: #999; /* цвет текста */
+    font-size: 15px; /* размер шрифта */
+    font-family: 'Roboto', sans-serif; /* семейство шрифтов */
+}
+
+.blog__footer { /* нижняя часть блога = число просмотров + комментарии */
+    border-top: 1px solid #e5e5e5; /* верхняя граница */
+    padding-top: 14px; /* отступ сверху */
+    
+    color: #999; /* цвет текста */
+    font-size: 15px; /* размер шрифта */
+    font-weight: 300; /* толщина начертания */
+    font-style: italic; /* курсив */
+}
+
+.blog-stat__item { /* элемент статистики в нижней части блога */
+    display: inline-block; /* строчный блок */
+    vertical-align: top; /* =по верхней границе */
+    margin-right: 15px; /* отступ справа */
+}
+
+.blog-stat__item i { /* иконки */
+    color: #95e1d3; /* цвет иконки */
+    margin-right: 2px; /* отступ справа от иконки */
+}
+
+
+/* 19. Map
+========== */
+.map { /* блок с картой */
+    text-align: center; /* =по центру */
+}
+
+.map__title { /* заголовок + иконка */
+    text-transform: uppercase; /* верхний регистр */
+    font-size: 24px; /* размер шрифта */
+    font-weight: 700; /* толщина начертания */
+    color: #f38181; /* цвет текста и иконки */
+}
+
+.map__title a { /* ссылка */
+    color: inherit; /* цвет текста и иконки */
+    text-decoration: none; /* без подчеркивания */
+}
+
+.map__title a:hover { /* ссылка при наведении */
+    text-decoration: underline; /* с подчеркиванием */
+}
+
+.map__title:after { /* полоса после заголовка */
+    content: ""; /* не добавляем контент */
+    display: block; /* блочный элемент */
+    width: 60px; /* ширина полосы */
+    height: 4px; /* высота полосы */
+    
+    background-color: #f38181; /* цвет полосы */
+    
+    margin: 15px auto 0; /* =по центру и отступы */
+}
+
+
+/* 20. Footer
+========== */
+.footer { /* футер сайта */
+    padding-top: 65px; /* отступ сверху */
+    background-color: #f8f8f8; /* цвет фона */
+}
+
+.footer__inner { /* контейнер для футера */
+    width: 100%;
+    display: flex; /* дочерние элементы - flex */
+    justify-content: space-between; /* =по ширине */
+    margin: 0 -15px 65px; /* отступы */
+}
+
+.footer__column {
+    padding: 0 15px; /*отступы слева и справа*/
+}
+
+.footer__column--first { /* левый блок */
+    width: 40%; /* ширина блока */
+}
+
+.footer__column--second { /* центральный блок */
+    width: 29%; /* ширина блока */
+}
+
+.footer__column--third { /* правый блок */
+    width: 22%; /* ширина блока */
+}
+
+.footer__logo { /* логотип в левой части */
+    font-size: 46px; /* размер шрифта */
+    font-weight: 700; /* толщина начертания */
+    color: #ccc; /* цвет текста */
+    
+    margin-bottom: 30px; /* отступ снизу */
+}
+
+.footer__text { /* текст в левой части */
+    font-size: 15px; /* размер шрифта */
+    color: #999; /* цвет текста */
+    margin-bottom: 30px; /* отступ снизу */
+}
+
+.footer__social { /* блок с соцсетями */
+    margin-bottom: 25px; /* отступ снизу */
+}
+
+.footer__social-header { /* количество подписчиков */
+    font-size: 14px; /* размер шрифта */
+    color: #333; /* цвет текста */
+    
+    border-bottom: 1px solid #e5e5e5; /* нижняя граница */
+    padding-bottom: 15px; /* отступ снизу */
+}
+
+.footer__social-header b { /* количество подписчиков */
+    font-size: 18px; /* размер шрифта */
+}
+
+.footer__social-follow { /* соцсети */
+    padding-top: 15px; /* отступ сверху */
+    
+    color: #999; /* цвет текста */
+    font-size: 15px; /* размер шрифта */
+    font-weight: 300; /* толщина начертания */
+    font-style: italic; /* курсив */
+    text-transform: capitalize; /* каждое слово с большой буквы */
+}
+
+.footer__social-follow a { /* ссылки-иконки */
+    display: inline-block; /* строчный блок */
+    vertical-align: middle; /* =по высоте */
+    margin-left: 10px; /* отступ слева */
+    color: #95e1d3; /* цвет иконки */
+    font-size: 18px; /* размер шрифта */
+    text-decoration: none;
+    transition: color .1s linear; /* плавность для цвета иконки*/ 
+}
+
+.footer__social-follow a:hover { /* ссылки-иконки при наведении */
+    color: #71b9ac; /* цвет иконки */
+}
+
+.footer__title { /* название блока в футере */
+    text-transform: uppercase; /* верхний регистр */
+    font-size: 14px; /* размер шрифта */
+    color: #333; /* цвет текста */
+    margin: 30px 0; /* отступы */
+}
+
+
+/* 21. Blogs
+========== */
+.blogs__item { /* блок для поста блога */
+    display: flex; /* дочерние элементы - flex (blogs__img и blogs__content) */
+    margin-bottom: 30px; /* отступы снизу */
+    align-items: center; /* =по высоте */
+}
+
+.blogs__img { /* картинка в посте */
+    width: 120px; /* ширина */
+    height: 80px; /* высота */
+}
+
+.blogs__content { /* контент поста */
+    padding-left: 20px; /* отступы слева */
+}
+
+.blogs__title { /* заголовок поста */
+    display: block; /* блочный элемент */
+    text-transform: uppercase; /* верхний регистр */
+    font-size: 12px; /* размер шрифта */
+    color: #333; /* цвет текста */
+    text-decoration: none; /* без подчеркивания */
+    line-height: 1.5; /* междустрочный интервал */
+    margin-bottom: 5px; /* отступ снизу */
+}
+
+.blogs__title:hover { /* заголовок поста при наведении */
+    text-decoration: underline; /* с подчеркиванием */
+}
+
+.blogs__date { /* дата поста */
+    color: #999; /* цвет текста */
+    font-size: 13px; /* размер шрифта */
+    font-weight: 300; /* толщина начертания */
+    font-style: italic; /* курсив */
+}
+
+
+/* 22. Instagram
+========== */
+.instagram { /* блок для фоток с инстаграма */
+    display: flex; /* дочерние элементы - flex */
+    flex-wrap: wrap; /* перенос на следующую строку */
+    justify-content: space-between; /* =по ширине */
+}
+
+.instagram__item { /* контейнер для одной фотографии */
+    width: 33%; /* по три в строку */
+    border-bottom: 1px solid #fff; /* нижняя граница */
+}
+
+.instagram__item img { /* сама фотка */
+    display: block; /* блочный элемент */
+    max-width: 100%; /* максимальная ширина */
+    height: auto; /* высота */
+}
+
+
+/* 23. Copyright
+========== */
+.copyright { /* самая нижняя часть */
+    padding: 20px 0; /* отступы сверху и снизу */
+    border-top: 1px solid #e5e5e5; /* верхняя граница */
+    font-size: 14px; /* размер шрифта */
+    color: #333; /* цвет текста */
+    text-align: center; /* =по центру */
+}
+
+.copyright span { /* имя */
+    color: #f38181; /* цвет текста */
+}
+
+
+/* 24. Subscribe
+========== */
+.subscribe { /* форма для подписки */
+    width: 100%; /* ширина */
+    max-width: 380px; /* максимальная ширина */
+    
+    display: flex; /* дочерние элементы - flex */
+}
+
+.subscribe__input { /* ввод email */
+    width: 60%; /* ширина */
+    height: 40px; /* высота */
+    
+    border: 1px solid #e7e7e7; /* граница */
+    border-right: 0; /* граница справа */
+    background-color: #fff; /* фон */
+    font-size: 15px; /* размер шрифта */
+    font-weight: 300; /* толщина начертания */
+    font-style: italic; /* курсив */
+    color: #333; /* цвет текста */
+    padding: 12px; /* отступы */
+    line-height: 1.1; /* межстрочный интервал */
+    
+    font-family: 'Roboto', sans-serif; /* семейство шрифтов */ 
+}
+
+.subscribe__input:focus { /* поле ввода в фокусе */
+    outline: 0; /* убираем границы */
+    border-color: #95e1d3; /* цвет границы */
+}
+
+.subscribe__input::placeholder { /* placeholder */
+    color: #ccc; /* цвет текста */
+}
+
+.subscribe__button { /* кнопка "подписаться" */
+    width: 40%; /* ширина */
+    height: 40px; /* высота */
+    padding: 0 30px; /* внутренние отступы */
+    background-color: #95e1d3; /* фон */
+    border: 0; /* убираем стандартные границы */
+    cursor: pointer; /* стиль указателя */
+    
+    text-transform: uppercase; /* верхний регистр */
+    font-size: 14px; /* размер шрифта */
+    font-weight: 700; /* толщина начертания */
+    color: #fff; /* цвет текста */
+    line-height: 1.1; /* межстрочный интервал */
+    
+    font-family: 'Montserrat', sans-serif; /* семейство шрифтов */
+    
+    transition: background .2s linear; /* плавность для цвета кнопки */
+}
+
+.subscribe__button:hover { /* кнопка при наведении */
+    background-color: #71b9ac; /* фон */
+}
+
+.subscribe__button:focus { /* кнопка в фокусе */
+    outline: 0; /* убираем границы */
+}
+
+
+
+
+
+/* 25. Media
+========== */
+@media (max-width: 1230px) { /* ноутбуки и ПК */
+    
+    /* ==Intro== */
+    .intro__suptitle { /* надзоголовок */
+        font-size: 60px; /* размер текста */
+    }
+    .intro__title { /* заголовок в intro */
+        font-size: 120px; /* размер текста */
+    }
+    
+    
+    /* ==Reviews== */
+    .reviews__author { /* автор отзыва */
+        font-size: 22px; /* размер текста */
+    }
+    .reviews__text { /* текст отзыва */
+        font-size: 20px; /* размер шрифта */
+    }
+       
+} /* */
+
+
+
+@media (max-width: 990px) { /* планшет широкая сторона */
+    
+    /* ==Intro== */
+    .intro { /* самый первый блок */
+        min-height: 750px; /* минимальная высота блока*/
+    }
+    .intro__suptitle { /* надзоголовок */
+        font-size: 40px; /* размер текста */
+    }
+    .intro__title { /* заголовок в intro */
+        font-size: 80px; /* размер текста */
+    }
+    
+    
+    /* ==Statistics== */
+    .stat { /* контейнер для .stat__item */
+        justify-content: center; /* элементы по центру */
+    }
+    .stat__item { /* сами блоки */
+        flex: none; /* негибкий элемент */
+        width: 33.333333%; /* три элемента в строку */
+        border: 0; /* убираем границы */
+        padding: 35px 15px; /* отступы */
+    }
+    .stat__item:last-child { /* последний блок */
+        border: 0; /* убираем границы */
+    }
+    
+    
+    /* ==Services== */
+    .services__item { /* сами блоки */
+        width: 50%; /* по два в строку */
+        margin-bottom: 0; /* отступ снизу */
+        padding-bottom: 20px; /* отступ снизу */
+    }
+    .services__item--border { /* модификатор для границ первых трех блоков */
+        border-bottom: 0; /* нижняя граница */
+    }
+    
+    
+    /* ==Accordion== */
+    .accordion__content { /* контент аккордеона  */
+        font-size: 16px; /* размер шрифта */
+    }
+     
+    
+    /* ==Reviews== */
+    .reviews .slick-slider { /* раздел отзывов */
+        padding: 0 90px; /* отступы */
+    }
+    .reviews__author { /* автор отзыва */
+        font-size: 20px; /* размер текста */
+    }
+    .reviews__text { /* текст отзыва */
+        font-size: 18px; /* размер шрифта */
+    }
+    
+    
+    /* ==Clients== */
+    .clients { /* блок с клиентами */
+        margin: 0 auto; /* =по центру */
+        max-width: 600px; /* максимальная ширина */
+        
+    }
+    .clients__item { /* элемент с одним клиентом */
+        width: 100%; /* 1 элемент в строку */
+        padding: 0 0 0 135px; /* отступы */
+        margin-bottom: 30px; /* отступ снизу */
+    }
+    .clients__item:last-child { /* последний элемент */
+        margin-bottom: 0; /* отступ снизу */
+    }
+    .clients__photo { /* фото клиента */
+        left: 15px; /* положение от левого края */
+    }
+    
+    
+    /* ==Footer== */
+    .footer { /* футер сайта */
+        padding-top: 40px; /* отступ сверху */
+    }
+    .footer__inner { /* контейнер для футера */
+        flex-wrap: wrap; /* перенос на другую строку */
+    }
+    .footer__column--first { /* теперь верхний блок */
+        width: 100%; /* ширина блока */
+        text-align: center;
+        margin-bottom: 30px; /* отступ снизу */
+    }
+    .footer__column--second, .footer__column--third { /* левый блок и правый блоки */
+        width: 50%; /* ширина блока */
+    }
+    .footer__logo { /* логотип в левой части */
+        margin-bottom: 10px; /* отступ снизу */
+    }
+    .footer__text { /* текст в левой части */
+        margin-bottom: 10px; /* отступ снизу */
+    }
+    
+    
+    /* ==Instagram== */
+    .instagram { /* блок для фоток с инстаграма */
+        justify-content: flex-start; /* =с начала */
+    }
+    .instagram__item { /* контейнер для одной фотографии */
+        width: auto; /* авто-ширина */
+    }
+    
+    
+    /* ==Subscribe== */
+    .subscribe { /* форма для подписки */
+        margin: 0 auto; /* =по центру */
+    }
+    
+} /* */
+
+
+
+@media (max-width: 770px) { /* планшет узкая сторона */
+    
+    /* ==Intro== */
+    .intro { /* самый первый блок */
+        min-height: 650px; /* минимальная высота блока*/
+    }
+    .intro__suptitle { /* надзоголовок */
+        font-size: 32px; /* размер текста */
+    }
+    .intro__title { /* заголовок в intro */
+        font-size: 64px; /* размер текста */
+    }
+
+    
+    /* ==Header== */
+    .header { 
+        padding: 10px 0;
+    }
+    
+    
+    /* ==Nav== */
+    .nav { /* навигация сайта */
+        display: none; /* скрываем навигацию */
+        
+        width: 100%;
+        
+        position: absolute;
+        top: 100%;
+        left: 0;
+        
+        background-color: #eb8b8d;
+    }
+    .nav.active { 
+        display: block; /* показываем навигацию */
+    }
+    
+    .nav__link { /* элемент меню */
+        display: block;
+        
+        margin: 0;
+        padding: 8px 16px;
+    }
+    
+    
+    /* ==Nav-toggle== */
+    .nav-toggle { /* бургер-меню */
+        display: block; /* показываем бургер-меню */
+    }
+    
+    
+    /* ==Slider== */
+    .slider__text { /* слайдер внизу intro */
+        display: none; /* скрываем текст */
+    }
+    .slider__item.active:before { /* полоса активного слайдера */
+        width: 50%; /* ширина полоса */
+    }
+    
+    
+    /* ==Section== */
+    .section { /* секция с информацией */
+        padding: 40px 0 50px; /* отступы сверху и снизу */
+    }
+    .section--devices { /* модификатор */
+        padding-bottom: 0; /* осттупы снизу */
+    }
+    
+    
+    /* ==Card== */
+    .card { /* раздел c карточками */
+        justify-content: center; /* =блоков по центру */
+        margin-top: 25px; /* отступы */
+    }
+    .card__item { /* контейнер блока card */
+        max-width: 410px; /* 380px + 2*15px */
+        width: 100%; /* ширина элементов */
+        margin-bottom: 30px; /* отступ снизу */
+    }
+    .card__item:last-child { /* нижний контейнер */
+        margin-bottom: 0; /* отступ снизу */
+    }
+    
+    
+    /* ==Services== */
+    .services { /* раздел sevices */
+        justify-content: center; /* =блоков по ширине */
+    }
+    .services__item { /* сами блоки */
+        width: 100%; /* по два в строку */
+        max-width: 360px; /* максимальная ширина блока */
+    }
+    
+    
+    /* ==Wedo== */
+    .wedo { /* раздел we-do */
+        flex-wrap: wrap; /* перенос на другую строку */
+        justify-content: center; /* =по центру */
+    }
+    .wedo__item { /* сами блоки */
+        width:  100%; /* 1 элемента в строку */
+    }
+    
+    .wedo__img {
+        width: 66%;
+        margin: 0 auto;
+    }
+    
+    
+    /* ==Accordion== */
+    .accordion__content { /* контент аккордеона  */
+        font-size: 14px; /* размер шрифта */
+    }
+    
+    
+    /* ==Reviews== */
+    .reviews .slick-slider { /* раздел отзывов */
+        padding: 0 15px; /* отступы */
+    }
+    .reviews__item { /* элемент reviews */
+        padding-left: 0; /* отступы */
+    }
+    .reviews__author { /* автор отзыва */
+        font-size: 18px; /* размер текста */
+    }
+    .reviews__text { /* текст отзыва */
+        font-size: 15px; /* размер шрифта */
+    }
+    .reviews__photo { /* фото */
+        position: static; /* статичный элемент */
+        margin: 0 auto 10px; /* =по центру */
+        width: 150px; /* ширина фото */
+        height: 150px; /* высота фото */
+    }
+    .slick-arrow { /* кнопки-стрелки */
+        top: 20%; /* положение сверху */
+    }
+ 
+    
+    /* ==Logos== */
+    .logos { /* контейнер для логотипа */
+        flex-wrap: wrap; /* перенос на другую строку */    
+    }
+    .logos__item { /* контейнер для логотипа */
+        width: 30%;
+        margin-bottom: 20px; /* отступы */
+    }
+    .logos__img { /* сам логотип */
+        margin: 0 auto; /* отступы */
+    }
+    
+    
+    /* ==Works== */
+    .works { /* раздел с работами */
+        flex-wrap: wrap; /* перенос на другую строку */ 
+    }
+    .works__column { /* колонка с фотографиями */
+        flex: none; /* негибкий элемент */
+        width: 50%; /* по две колонки в строку */
+    }
+    
+    
+    /* ==Blog== */
+    .blog { /* блок с блогами */
+        max-width: 380px; /* максимальная ширина */
+        margin: 0 auto; /* =по центру */
+    }
+    .blog__item { /* элемент с одним постом в блоге */
+        width: 100%; /* 1 элемент в строку */
+        margin-bottom: 30px; /* отступ снизу */
+    }
+    .blog__item:last-child { /* последний элемент */
+        margin-bottom: 0; /* отступ снизу */
+    }    
+    
+    
+    /* ==Footer== */
+    .footer__inner {
+        margin: 0 auto;
+    }
+    .footer__column--second, .footer__column--third { /* левый блок и правый блоки */
+        width: 100%; /* ширина блока */
+        margin-bottom: 30px; /* отступ снизу */
+    }
+
+    /* ==Instagram== */
+    .instagram { /* блок для фоток с инстаграма */
+        justify-content: center; /* =с начала */
+    }
+ 
+    
+} /* */
+
+
+
+@media (max-width: 575px) { /* смартфоны */
+    
+    /* ==Intro== */
+    .intro__suptitle { /* надзоголовок */
+        font-size: 24px; /* размер текста */
+    }
+    .intro__title { /* заголовок в intro */
+        font-size: 48px; /* размер текста */
+    }
+    
+    
+    /* ==Section== */
+    .section { /* секция с информацией */
+        padding: 25px 0 30px; /* осттупы сверху и снизу */
+    }
+    .section--devices { /* модификатор */
+        padding-bottom: 0; /* осттупы снизу */
+    }
+    .section__suptitle { /* надзаголовок */
+        font-size: 18px; /* размер текста */
+    }
+    .section__title { /* заголовок */
+        font-size: 24px; /* размер текста */
+    }
+    .section__title:after { /* полоса после заголовка */
+        margin: 20px auto; /* =по центру и отступы */
+    }
+    
+    
+    /* ==Statistics== */
+    .stat__item { /* сами блоки */
+        width: 100%; /* три элемента в строку */
+        padding: 20px 15px; /* отступы */
+        border-bottom: 1px solid #b5eae0; /* граница снизу */
+    }
+    .stat__item:last-child { /* последний блок */
+        border-bottom: 0; /* граница снизу */
+    }
+    .stat__num { /* число в статистике */
+        font-size: 52px; /* размер шрифта */
+    }
+    
+    
+    /* ==Services== */
+    .services__item { /* сами блоки */
+        padding-left: 60px; /* отступ слева */
+        padding-right: 0; /* отступ справа */
+    }
+    .services__icon { /* иконка */
+        left: 10px; /* отступ слева */
+    }
+    
+    
+    /* ==Devices== */
+    .devices { /* секция devices */
+        max-width: 320px; /* максимальная ширина блока */
+    }
+    .devices__item--iphone { /* картинка айфона */
+        max-width: 180px; /* максимальная ширина блока */
+        bottom: -50px; /* положение от нижнего края */
+        right: -80px; /* положение от правого края */
+    }
+    
+    
+    /* ==Reviews== */
+    .reviews__author { /* автор отзыва */
+        font-size: 16px; /* размер текста */
+    }
+    .reviews__text { /* текст отзыва */
+        font-size: 13px; /* размер шрифта */
+    }
+    .reviews__photo { /* фото */
+        width: 120px; /* ширина фото */
+        height: 120px; /* высота фото */
+    }
+    
+    
+    /* ==Logos== */
+    .logos__item { /* контейнер для логотипа */
+        width: 50%;
+    }
+    
+    
+    /* ==Works== */
+    .works { /* раздел с работами */
+        max-width: 480px; /* максимальная ширина */
+        width: 100%; /* ширина */
+        margin: 0 auto; /* =по центру */
+    }
+    .works__column { /* колонка с фотографиями */
+        width: 100%; /* по одной фотке в строку */
+    }
+    
+    
+    /* ==Clients== */
+    .clients__item { /* элемент с одним клиентом */
+        padding: 0 0 10px; /* отступы */
+        text-align: center; /* =по центру */
+    }
+    .clients__photo { /* фото клиента */
+        position: static; /* статический элемент */
+        margin: 0 auto; /* =по центру */
+    }
+    .clients__text:before { /* полоска между тектом и профессией */
+        margin: 15px auto; /* =по центру */
+    }
+    
+    
+    /* ==Subscribe== */
+    .subscribe { /* форма для подписки */
+        flex-wrap: wrap; /* перенос на следующую строку */
+        max-width: none; /* убираем максимальную ширину */
+    }
+    .subscribe__input { /* ввод email */
+        width: 100%; /* ширина */
+        border-right: 1px solid #e7e7e7; /* граница */
+        margin-bottom: 5px; /* отступ снизу */
+    }
+    .subscribe__button { /* кнопка "подписаться" */
+        width: 100%; /* ширина */
+    }
+    
+    
+    /* ==Blogs== */
+    .blogs__img { /* картинка в посте */
+        width: 90px; /* ширина */
+        height: 60px; /* высота */
+    }
+    .blogs__content { /* контент поста */
+        padding-left: 15px; /* отступы слева */
+    }
+    .blogs__title { /* заголовок поста */
+        font-size: 11px; /* размер шрифта */
+    }
+
+    
+} /* */
+
+
+
+
+
