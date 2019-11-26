@@ -1,3 +1,7 @@
-# html-project-02
+## Layout Project - MoGo
 
- верстка сайта по psd-макету (html5, css3, jquery)
+# Info
+ Верстка сайта по psd-макету (HTML5, CSS3, jQuery)
+ 
+# Link
+ [PSD template](https://freebiesbug.com/psd-freebies/mogo-free-one-page-psd-template/)
